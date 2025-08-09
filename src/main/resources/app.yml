@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: jira-server
+
+  profiles:
+    active: dev
+    include:
+      - database
+      - security
+
+  threads:
+    virtual:
+      enabled: true
+
+  main:
+    allow-bean-definition-overriding: true
+
+spring.config.import:
+  - optional:classpath:database.yml
+  - optional:classpath:security.yml
